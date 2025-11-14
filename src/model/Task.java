@@ -9,6 +9,7 @@ public class Task {
     private int id;
     private String title;
     private String description;
+    private User owner;
     private Project project;
     private Priority priority;
     private TaskStatus status;
@@ -22,10 +23,11 @@ public class Task {
     }
 
     // Constructor
-    public Task(int id, String title, String description, Project project, Priority priority){
+    public Task(int id, String title, String description, User owner, Project project, Priority priority){
         this.id = id;
         this.title = title;
         this.description = description;
+        this.owner = owner;
         this.project = project;
         this.priority = priority;
         this.status = TaskStatus.PENDING;
@@ -57,6 +59,14 @@ public class Task {
     }
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    // owner
+    public User getOwner() {
+        return owner;
+    }
+    public void setOwner(User owner) {
+        this.owner = owner;
     }
 
     // project
@@ -110,7 +120,8 @@ public class Task {
                 "id=" + id +
                 ", title='" + title + '\'' +
                 ", description='" + description + '\'' +
-                ", project=" + (project != null ? project.getName() : "No project") +
+                ", owner='" + (owner != null ? owner.getId() + '\'' : "No owner'") +
+                ", project='" + (project != null ? project.getId() + '\'' : "No project'") +
                 ", priority=" + priority +
                 ", status=" + status +
                 ", createdAt=" + createdAt +
@@ -121,8 +132,8 @@ public class Task {
     // Main method for testing
     public static void main(String[] args) {
         User user = new User(1, "User1");
-        Project project = new Project(1, "Project1", "Description1", user);
-        Task task = new Task(1, "task", "description", project, Priority.HIGH);
+        Project project = new Project(1, "Project1", "Description1");
+        Task task = new Task(1, "task", "description", user, project, Priority.HIGH);
         task.comleteTask();
         System.out.println(task);
     }

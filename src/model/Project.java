@@ -8,7 +8,6 @@ public class Project {
     private int id;
     private String name;
     private String description;
-    private User owner;
 
     private List<Task> tasks = new ArrayList<>();
 
@@ -26,11 +25,10 @@ public class Project {
     }
 
     // Constructor
-    public Project(int id, String name, String description, User owner) {
+    public Project(int id, String name, String description) {
         this.id = id;
         this.name = name;
         this.description = description;
-        this.owner = owner;
     }
 
     // Getters and Setters
@@ -55,21 +53,13 @@ public class Project {
         this.description = description;
     }
 
-    // owner
-    public User getOwner() {
-        return owner;
-    }
-    public void setOwner(User owner) {
-        this.owner = owner;
-    }
-
     // toString method
     @Override
     public String toString() {
         return "Project{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", owner=" + (owner != null ? owner.getName() : "No owner") +
+                ", description='" + description + '\'' +
                 ", tasks=" + tasks.size() +
                 '}';
     }
