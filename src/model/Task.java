@@ -120,7 +120,7 @@ public class Task {
 
     // Main method for testing
     public static void main(String[] args) {
-        model.User user = new model.User(1, "User1");
+        User user = new User(1, "User1");
         Project project = new Project(1, "Project1", "Description1", user);
         Task task = new Task(1, "task", "description", project, Priority.HIGH);
         task.comleteTask();
