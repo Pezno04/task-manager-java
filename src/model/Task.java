@@ -16,10 +16,9 @@ public class Task {
     private LocalDateTime createdAt;
     private LocalDateTime completedAt;
 
-    // Method to mark task as completed
-    public void comleteTask() {
-        this.status = TaskStatus.COMPLETED;
-        this.completedAt = LocalDateTime.now();
+    // remove method
+    public void removeTask() {
+        this.project.removeTask(this);
     }
 
     // Constructor
@@ -111,6 +110,13 @@ public class Task {
     // completedAt
     public LocalDateTime getCompletedAt() {
         return completedAt;
+    }
+    public void comleteTask() {
+        this.status = TaskStatus.COMPLETED;
+        this.completedAt = LocalDateTime.now();
+    }
+    public void uncompleteTask() {
+        this.completedAt = null;
     }
 
     // toString method
