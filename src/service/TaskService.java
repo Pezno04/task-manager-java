@@ -10,8 +10,7 @@ import repository.InMemoryProjectRepository;
 import model.enums.Priority;
 import model.enums.TaskStatus;
 
-import exceptions.TaskNotFoundException;
-import exceptions.ProjectNotFoundException;
+import exception.TaskNotFoundException;
 
 import java.util.List;
 
@@ -126,7 +125,7 @@ public class TaskService {
     public void markTaskAsCompleted(int taskId) {
         Task task = taskRepository.findById(taskId);
         if (task != null) {
-            task.completeTask();
+            task.comleteTask();
             taskRepository.update(task);
         }
     }

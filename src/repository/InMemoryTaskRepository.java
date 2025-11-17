@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
 import model.Task;
 
 public class InMemoryTaskRepository implements TaskRepository {
@@ -42,7 +43,7 @@ public class InMemoryTaskRepository implements TaskRepository {
     // delete
     @Override
     public void delete(int id) {
-        task = tasks.get(id);
+        Task task = tasks.get(id);
         if (task != null) {
             task.removeTask();
             tasks.remove(id);
